@@ -1,54 +1,40 @@
-# React + TypeScript + Vite
+# TP2 – Front & Back avec Docker Compose
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Le repo **tp2-front** contient aussi le fichier `docker-compose.yml` pour builder et lancer **directement** les deux services :
 
-Currently, two official plugins are available:
+- Le front dans son dossier (`.`)
+- Le back en build local par rapport au dossier `../tp2-back`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Prérequis
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Docker & Docker Compose
+- Node (pour builder si besoin en local)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## Lancement
+
+1. **Cloner** les deux dépôts côte-à-côte dans le même dossier parent
+
+```bash
+git clone https://github.com/MelissaFrncJrg/docker-tp2-back.git tp2-back
+git clone https://github.com/MelissaFrncJrg/docker-tp2-front.git tp2-front
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Entrer dans le dossier front
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+cd tp2-front
 ```
+
+3. Démarrer l’ensemble
+
+```bash
+docker-compose up --build
+```
+
+### URL d'accès
+
+Ouvrir http://localhost:3003
