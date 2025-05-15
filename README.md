@@ -1,4 +1,4 @@
-# TP2 – Front & Back avec Docker Compose
+# TP2 – Docker et Docker compose
 
 Le repo **tp2-front** contient aussi le fichier `docker-compose.yml` pour builder et lancer **directement** les deux services :
 
@@ -38,3 +38,7 @@ docker-compose up --build
 ### URL d'accès
 
 Ouvrir http://localhost:3003
+
+# Accès en ligne
+
+- [https://docker-tp2-front.vercel.app](https://docker-tp2-front.vercel.app)
